@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "BSCS_ATM_SERVICE/1.0.0": {
+        "runtime": {
+          "BSCS_ATM_SERVICE.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BSCS_ATM_SERVICE/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
