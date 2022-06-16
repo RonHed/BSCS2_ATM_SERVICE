@@ -3,10 +3,11 @@ using System.Globalization;
 
 namespace BSCS_ATM_SERVICE.Account
 {
+    // Methods in ATM_Machine
     public class Account_Service : ATM
     {
+        
         public void Transaction_Menu() {
-           
             Console.WriteLine("|=======================================|");
             Console.WriteLine("|      WELCOME TO BSCS ATM SERVICE!     |");
             Console.WriteLine("|=======================================|");
@@ -23,30 +24,30 @@ namespace BSCS_ATM_SERVICE.Account
             Console.WriteLine("Would you like to do another transaction?");
             Console.WriteLine("     [1] Yes \n     [2] No");
         }
-        public double Current_Balance(double balance){
+        public double Current_Balance(double _balance){
             Console.WriteLine("*****************************************");
             Console.WriteLine("-------------Account-Balance-------------");
             Console.WriteLine("| Time: " + DateTime.Now);
-            Console.WriteLine("| Balance: P" + balance);
+            Console.WriteLine("| Balance: P" + _balance);
             Console.WriteLine("*****************************************");
 
             Console.WriteLine("--Thank you for using BSCS ATM Service!--");
-            return balance;
+            return _balance;
         }
 
-        public double Withdraw(double balance){
+        public double Withdraw(double _balance){
             double withdrawMoney; 
             
             Console.WriteLine("-----------------------------------------");
             Console.Write("Enter your withdrawal amount: ");
             withdrawMoney = Convert.ToDouble(Console.ReadLine());
             
-            if(withdrawMoney > 0 && withdrawMoney <= balance) {
-            balance -= withdrawMoney;
+            if(withdrawMoney >= 0 && withdrawMoney <= _balance) {
+            _balance -= withdrawMoney;
             Console.WriteLine("*****************************************");
             Console.WriteLine("-------------Account-Balance-------------");
             Console.WriteLine("| Time: " + DateTime.Now);
-            Console.WriteLine("| Balance: P" + balance);
+            Console.WriteLine("| Balance: P" + _balance);
             Console.WriteLine("*****************************************");
             
             Console.WriteLine("------------Have a nice day!------------\n-Thank you for banking with BSCS ATM Service!-");
@@ -54,9 +55,9 @@ namespace BSCS_ATM_SERVICE.Account
 	        else{
 		        Console.WriteLine("\nSorry, this transaction may exceed/fail the minimum balance of your account.\n--Thank you for banking with us! Have a nice day!--");
 	        }
-            return balance;
+            return _balance;
       }
-        public double Deposit(double balance){
+        public double Deposit(double _balance){
             double depositMoney;
 
             Console.WriteLine("-----------------------------------------");
@@ -64,12 +65,12 @@ namespace BSCS_ATM_SERVICE.Account
             depositMoney = Convert.ToDouble(Console.ReadLine());
 
                 if(depositMoney > 0){
-                balance += depositMoney;
+                _balance += depositMoney;
 
                 Console.WriteLine("*****************************************");
                 Console.WriteLine("-------------Account-Balance-------------");
                 Console.WriteLine("| Time: " + DateTime.Now);
-                Console.WriteLine("| Balance: P" + balance);
+                Console.WriteLine("| Balance: P" + _balance);
                 Console.WriteLine("*****************************************");
                 Console.WriteLine("------------Have a nice day!------------\n-Thank you for banking with BSCS ATM Service!-");
                 }
@@ -77,7 +78,7 @@ namespace BSCS_ATM_SERVICE.Account
                 {
                     Console.WriteLine("---!Sorry, cannot deposit with that amount.!---\nThank you for banking with us! Have a nice day!");    
                 }
-            return balance;
+            return _balance;
         }
 
         public void Cancel_Transaction(){
@@ -93,3 +94,8 @@ namespace BSCS_ATM_SERVICE.Account
         }
     }
 }
+// ***********************
+// Work by Ron Hedwig Zape
+// BSCS 2
+// ACLCC-Iriga
+// ***********************

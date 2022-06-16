@@ -6,19 +6,25 @@ namespace BSCS_ATM_SERVICE
 {
     public class ATM
     {
-        // public double balance { get; set; }
-        // public ATM()
-        // {
-            
-        // }
+        // Declare properties
+        public double _balance { get; set; }
+        public int transactNum { get; set; }
+        public int transactNum2 { get; set; }
+
+        // Initialize values in constructor
+        public ATM()
+        {
+            _balance = 10000.00;
+            transactNum = 0;
+            transactNum2 = 0;
+        }    
+
+        // ATM 
         public void ATM_Machine() 
         {
-            double balance = 10000.00D;
-            int transactNum; 
-            int transactNum2 = 0;
-
             do
             {
+                // Display Transaction Menu from Account Services
                 Account_Service accountS = new Account_Service();
                 accountS.Transaction_Menu();
                 
@@ -26,25 +32,34 @@ namespace BSCS_ATM_SERVICE
                 Console.Write("Enter the transaction number: ");
                 transactNum = Convert.ToInt32(Console.ReadLine());
 
+                // Options from Transaction Menu 
                     switch (transactNum)
                     {
                         case 1:
-                            accountS.Current_Balance(balance);
+                            // Current Balance
+                            accountS.Current_Balance(_balance);
                         break;
                         case 2:
-                            accountS.Withdraw(balance);
+                            // Withdraw
+                            accountS.Withdraw(_balance);
                         break;
                         case 3:
-                            accountS.Deposit(balance);
+                            // Deposit 
+                            accountS.Deposit(_balance);
                         break;
                         case 4:
+                            // Cancel
                             accountS.Cancel_Transaction();
                         break;
                         default: 
+                            // Invalid Transaction Number
                             accountS.Error_Message();
                         break;
                     } 
+                // Another Transaction 
                 accountS.Another_Transaction();
+
+                // Try-Catch-Finally for Unhandled Exceptions 
                 try
                 {
                     transactNum2 = Convert.ToInt32(Console.ReadLine());    
@@ -69,6 +84,10 @@ namespace BSCS_ATM_SERVICE
                 }
             } while (transactNum != 4 && transactNum2 != 2);                      
         }
-
     }
 }
+// ***********************
+// Work by Ron Hedwig Zape
+// BSCS 2
+// ACLCC-Iriga
+// ***********************
